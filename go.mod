@@ -1,4 +1,4 @@
-module ZenTotem
+module http-service-api
 
 go 1.20
 

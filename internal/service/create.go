@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	sq "github.com/Masterminds/squirrel"
-	desc "github.com/arpushkarev/http-service-api/cmd"
+	"github.com/arpushkarev/http-service-api/cmd"
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 )
