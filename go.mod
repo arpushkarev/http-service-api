@@ -1,4 +1,4 @@
-module http-service-api
+module github.com/arpushkarev/http-service-api
 
 go 1.20
 
