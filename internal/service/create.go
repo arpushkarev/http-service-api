@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	sq "github.com/Masterminds/squirrel"
-	"github.com/arpushkarev/http-service-api/cmd"
+	"github.com/arpushkarev/http-service-api/internal/memory"
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 )
@@ -20,7 +20,7 @@ const (
 	sslMode    = "disable"
 )
 
-func () Create(ctx, context.Context, req cmd.Person) (int64, error) {
+func (s *Service) Create(ctx context.Context, req *memory.Person) (int64, error) {
 	dbDSN := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
 		host, port, dbUSer, dbPassword, dbName, sslMode,
@@ -33,10 +33,10 @@ func () Create(ctx, context.Context, req cmd.Person) (int64, error) {
 	defer db.Close()
 
 	builder := sq.Insert(table).
-	PlaceholderFormat(sq.Dollar).
-	Columns("name", "age").
-	Values(req.Name(), req.Age()).
-	Suffix("returning id")
+		PlaceholderFormat(sq.Dollar).
+		Columns("name", "age").
+		Values(req.Name, req.Age).
+		Suffix("returning id")
 
 	query, args, err := builder.ToSql()
 	if err != nil {
