@@ -7,10 +7,6 @@ import (
 	"os"
 )
 
-const (
-	Table = "users"
-)
-
 type Person struct {
 	Key   string
 	Value int64
