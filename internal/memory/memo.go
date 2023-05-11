@@ -1,6 +1,6 @@
 package memory
 
 type Person struct {
-	Name string
-	Age  int64
+	Name string `json:"Key"`
+	Age  int64  `json:"Value"`
 }
