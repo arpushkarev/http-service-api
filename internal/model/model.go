@@ -1,12 +1,12 @@
 package model
 
-import "strconv"
-
-type Id struct {
-	Id int64
+type Info struct {
+	Id map[string]int64
 }
 
-func (i *Id) GetId(id int64) string {
-	idStr := strconv.Itoa(int(id + 1))
-	return idStr
+func (i *Info) Add(key string, value int64) Info {
+	var myMap = make(map[string]int64)
+	myMap[key] = value
+	i.Id = myMap
+	return *i
 }
