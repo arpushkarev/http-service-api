@@ -1,6 +1,6 @@
 .PHONY: run
 run:
-	go run -v cmd/main.go
+	go run -v ./cmd
 
 LOCAL_MIGRATION_DIR=./migrations
 LOCAL_MIGRATION_DSN="host=localhost port=54321 dbname=zt-service user=zt-service-user password=zt-service-password sslmode=disable"

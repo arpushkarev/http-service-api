@@ -11,6 +11,7 @@ require (
 
 require (
 	github.com/cockroachdb/apd v1.1.0 // indirect
+	github.com/go-chi/chi/v5 v5.0.8 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/jackc/fake v0.0.0-20150926172116-812a484cc733 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
