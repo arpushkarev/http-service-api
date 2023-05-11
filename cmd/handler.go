@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -11,18 +10,16 @@ import (
 	"github.com/arpushkarev/http-service-api/internal/service"
 )
 
-var id model.Id
+var Info model.Info
 
 func answer(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 
 	ID, err := service.NewService().Create(ctx, Data1)
 
-	id.Id = ID
+	Info.Add("id", ID)
 
-	idStr := fmt.Sprintf("id: %s", id.GetId(id.Id))
-
-	idJson, err := json.MarshalIndent(idStr, "", "\t")
+	idJson, err := json.MarshalIndent(Info.Id, "", "\t")
 	if err != nil {
 		log.Println("failed converting data to JSON", err.Error())
 	}
